@@ -1,24 +1,50 @@
 # Jekyll::Haml
 
-TODO: Write a gem description
+This gem provides a [Jekyll](http://github.com/mojombo/jekyll) converter for
+[Haml](http://haml.info) files.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+If using [Bundler](http://gembundler.com), add this line to your application's Gemfile:
 
     gem 'jekyll-haml'
 
-And then execute:
+In a file within your Jekyll project's `_plugins` directory:
 
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install jekyll-haml
+    # _plugins/bundler.rb
+    require "rubygems"
+    require "bundler/setup"
+    Bundler.require(:default)
 
 ## Usage
 
-TODO: Write usage instructions here
+You'll be able to use all of Haml's tricks to write some really clean markup. You can use liquid filters easily by just rendering the liquid tags as shown below. The gem adds the liquid filter `haml` so you can render `_includes` that are written in Haml as well. Have fun!
+
+For clean content blocks, I find it helps to use Haml's `:markdown` filter if I can get away with it.
+
+```haml
+---
+title: Story Time
+permalink: page/
+---
+:javascript
+  $(document).ready(function(){});
+
+%h3= "{% title %}"
+.content
+  :markdown
+    *Dec 4, 2012* - [Author](http://github.com)
+
+    Once upon a time, in a village by the sea...
+
+= "{% haml comments.haml %}"
+```
+
+## About
+
+I originally searched around the internet for a quick way to integrate HAML into my jekyll workflow and found a few around the internet to convert haml in different cases (layouts, partials, and posts). This gem is really just a collection of those techniques so they're easy to find and you can get back to creating your site using the slickest markup. It's made to drop in to your `Gemfile` just as easily as [jekyll-sass](https://github.com/noct/jekyll-sass).
+
+If you're using this stuff, you may also be interested in [Octopress](http://octopress.org). I believe it includes support for Haml/Sass out of the gate.
 
 ## Contributing
 
