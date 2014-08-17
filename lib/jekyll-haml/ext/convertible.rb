@@ -13,7 +13,7 @@ module Jekyll
 
       self.process(name)
       self.read_yaml(base, name)
-      self.transform
+      self.content = self.transform
     end
   end
 end
