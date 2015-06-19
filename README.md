@@ -5,16 +5,20 @@ This gem provides a [Jekyll](http://github.com/mojombo/jekyll) converter for
 
 ## Installation
 
-If using [Bundler](http://gembundler.com), add this line to your application's Gemfile:
+If using [Bundler](http://gembundler.com), add these lines to your application's Gemfile:
 
-    gem 'jekyll-haml'
+```rb
+group :jekyll_plugins do
+  gem 'jekyll-haml'
+end
+```
 
-In a file within your Jekyll project's `_plugins` directory:
+Alternatively, if you don't use Bundler, just update your Jekyll project's `_config.yml`:
 
-    # _plugins/bundler.rb
-    require "rubygems"
-    require "bundler/setup"
-    Bundler.require(:default)
+```yml
+gems:
+- jekyll-haml
+```
 
 ## Usage
 
