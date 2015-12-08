@@ -1,3 +1,7 @@
+## 0.1.3 2015-12-08
+### minor enhancements
+  * Fixed an error with Jekyll 2.3.0 (and probably with prior versions) that crashes when building the site - ([@kalvinarts][])
+
 ## 0.1.2 2015-04-28
 ### minor enhancements
   * Follow Jekyll 2.3.0 internal API change - ([@yaegashi][])
