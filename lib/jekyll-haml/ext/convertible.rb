@@ -5,7 +5,7 @@ module Jekyll
 
     def initialize(*args)
       old_initialize(*args)
-      self.transform
+      self.content = self.transform
     end
   end
 end
