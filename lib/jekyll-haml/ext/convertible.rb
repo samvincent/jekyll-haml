@@ -5,7 +5,15 @@ module Jekyll
 
     def initialize(*args)
       old_initialize(*args)
-      self.content = self.transform
+      self.content = transform
+    end
+
+    def transform
+      _renderer.convert(content)
+    end
+
+    def extname
+      ext
     end
   end
 end
