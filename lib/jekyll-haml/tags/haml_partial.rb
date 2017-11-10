@@ -25,7 +25,7 @@ module Jekyll
         choices = Dir['**/*'].reject { |x| File.symlink?(x) }
         if choices.include?(@file)
           source     = File.read(@file)
-          conversion = ::Haml::Engine.new(source).render
+          conversion = ::Haml::Engine.new(source).render.delete("\n")
           partial    = Liquid::Template.parse(conversion)
           begin
             return partial.render!(context)
