@@ -1,3 +1,7 @@
+## 0.1.6 2017-11-10
+### minor enhancements
+    * removes newlines from `{% haml %}` includes - ([@pedrozath][])
+
 ## 0.1.5 2016-12-30
 ### minor enhancements
     * Fixed an error with Jekyll 3.3.0 and later https://github.com/samvincent/jekyll-haml/issues/19
