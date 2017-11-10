@@ -25,12 +25,13 @@ module Jekyll
         choices = Dir['**/*'].reject { |x| File.symlink?(x) }
         if choices.include?(@file)
           source     = File.read(@file)
-          conversion = ::Haml::Engine.new(source).render
+          conversion = ::Haml::Engine.new(source).render.delete("\n")
           partial    = Liquid::Template.parse(conversion)
           begin
             return partial.render!(context)
           rescue => e
-            puts "Liquid Exception: #{e.message} in #{self.data["layout"]}"
+            print "Liquid Exception: #{e.message}"
+            print "in #{self.data["layout"]}"
             e.backtrace.each do |backtrace|
               puts backtrace
             end
