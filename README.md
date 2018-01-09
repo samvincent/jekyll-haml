@@ -24,6 +24,8 @@ gems:
 
 You'll be able to use all of Haml's tricks to write some really clean markup. You can use liquid filters easily by just rendering the liquid tags as shown below. Have fun!
 
+**Important**: For Jekyll to invoke Haml on your file, it must have front-matter (the section contained between the `---`) at the top. If you don't have any front-matter, you need to include an empty one (see below for example), otherwise Jekyll might serve your Haml file as is.
+
 ```haml
 ---
 title: Story Time
@@ -34,6 +36,13 @@ permalink: page/
   
 :javascript
   $(document).ready(function(){});
+```
+
+```haml
+---
+---
+.title
+  %h1 This is a page without front-matter content
 ```
 
 ### Markdown blocks
