@@ -2,10 +2,9 @@ require 'haml'
 
 module Jekyll
 
-  class HamlPartialTag < Liquid::Tag
+  class HamlPartialTag < Tags::IncludeTag
     def initialize(tag_name, file, tokens)
       super
-      @file = file.strip
     end
 
     def render(context)
@@ -28,6 +27,7 @@ module Jekyll
           conversion = ::Haml::Engine.new(source).render.delete("\n")
           partial    = Liquid::Template.parse(conversion)
           begin
+            context["include"] = parse_params(context) if @params
             return partial.render!(context)
           rescue => e
             print "Liquid Exception: #{e.message}"
