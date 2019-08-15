@@ -25,7 +25,10 @@ module Jekyll
         choices = Dir['**/*'].reject { |x| File.symlink?(x) }
         if choices.include?(@file)
           source     = File.read(@file)
-          conversion = ::Haml::Engine.new(source).render.delete("\n")
+          payload = context.registers[:site].to_liquid
+          payload.page = context.registers[:page]
+          payload.paginator = context.registers[:page].pager
+          conversion = ::Haml::Engine.new(source).render(payload.to_h).delete("\n")
           partial    = Liquid::Template.parse(conversion)
           begin
             return partial.render!(context)
