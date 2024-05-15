@@ -9,7 +9,7 @@ module Jekyll
     end
 
     def transform
-      _renderer.convert(content)
+      renderer.convert(content)
     end
 
     def extname
