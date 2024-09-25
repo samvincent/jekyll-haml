@@ -1,3 +1,9 @@
+## 1.0.0 2024-05-15
+### breaking changes in order to work with jekyll ~> 4.0
+  * rework of haml liquid tag implementation - ([@mfaughn][])
+  * change Coverter._renderer to Coverter.renderer in convertible.rb - ([@mfaughn][])
+  * update dependencies in gemspec - ([@mfaughn][])
+
 ## 0.1.6 2017-11-10
 ### minor enhancements
     * removes newlines from `{% haml %}` includes - ([@pedrozath][])
